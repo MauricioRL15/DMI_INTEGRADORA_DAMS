@@ -162,8 +162,8 @@ class _NextScreenState extends State<NextScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Image.asset('assets/image1.png', width: 40.0, height: 40.0),
-                  Image.asset('assets/image2.png', width: 40.0, height: 40.0),
-                  Image.asset('assets/image3.png', width: 40.0, height: 40.0),
+                  Image.asset('assets/image2.png', width: 50.0, height: 50.0),
+                  Image.asset('assets/image3.png', width: 50.0, height: 50.0),
                 ],
               ),
             ],

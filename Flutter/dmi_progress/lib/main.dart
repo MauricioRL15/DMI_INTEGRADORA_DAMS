@@ -95,27 +95,76 @@ class _InitialScreenState extends State<InitialScreen> {
   }
 }
 
-class NextScreen extends StatelessWidget {
+class NextScreen extends StatefulWidget {
+  @override
+  _NextScreenState createState() => _NextScreenState();
+}
+
+class _NextScreenState extends State<NextScreen> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  void _login() {
+    // Aquí puedes agregar la lógica de validación de inicio de sesión.
+    // Por ejemplo, puedes verificar si los campos no están vacíos y si las credenciales son correctas.
+    String username = _usernameController.text;
+    String password = _passwordController.text;
+
+    // Realiza las validaciones necesarias aquí.
+
+    // Si la validación es exitosa, puedes navegar a la siguiente pantalla.
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pantalla siguiente'),
-        backgroundColor: Color(0xFFAD1919), // Color del AppBar en hexadecimal
+        title: Text('Pantalla de inicio de sesión'),
+        backgroundColor: Color(0xFFAD1919),
       ),
-      body: Align(
-        alignment: Alignment.topCenter,
+      body: Center(
         child: Padding(
-          padding:
-              const EdgeInsets.only(top: 16.0), // Ajusta el espaciado superior
+          padding: const EdgeInsets.all(16.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
                 'Bienvenido a FIREBROS!',
                 style: TextStyle(
-                  fontSize: 26.0, // Tamaño de fuente
-                  fontWeight: FontWeight.bold, // Texto en negrita
+                  fontSize: 26.0,
+                  fontWeight: FontWeight.bold,
                 ),
+              ),
+              SizedBox(height: 20.0),
+              TextField(
+                controller: _usernameController,
+                decoration: InputDecoration(labelText: 'Correo electronico'),
+              ),
+              SizedBox(height: 10.0),
+              TextField(
+                controller: _passwordController,
+                decoration: InputDecoration(labelText: 'Contraseña'),
+                obscureText: true, // Para ocultar la contraseña
+              ),
+              SizedBox(height: 20.0),
+              ElevatedButton(
+                onPressed: _login,
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xFFAD1919), // Establece el color de fondo del botón
+                ),
+                child: Text(
+                  'Iniciar sesión',
+                  style: TextStyle(color: Colors.white), // Establece el color del texto del botón
+                ),
+              ),
+               SizedBox(height: 20.0),
+               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.asset('assets/image1.png', width: 40.0, height: 40.0),
+                  Image.asset('assets/image2.png', width: 40.0, height: 40.0),
+                  Image.asset('assets/image3.png', width: 40.0, height: 40.0),
+                ],
               ),
             ],
           ),
@@ -124,3 +173,4 @@ class NextScreen extends StatelessWidget {
     );
   }
 }
+

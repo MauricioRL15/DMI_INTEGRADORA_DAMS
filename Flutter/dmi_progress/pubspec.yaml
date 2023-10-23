@@ -57,6 +57,9 @@ flutter:
     - assets/firebros.png
     - assets/firebros2.png
     - assets/firebros3.png
+    - assets/image1.png
+    - assets/image2.png
+    - assets/image3.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -128,6 +128,13 @@ class _NextScreenState extends State<NextScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              SizedBox(height: 20.0),
+               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.asset('assets/firebros3.png', height: 200.0),
+                ],
+              ),
               Text(
                 'Bienvenido a FIREBROS!',
                 style: TextStyle(
@@ -156,6 +163,19 @@ class _NextScreenState extends State<NextScreen> {
                   'Iniciar sesión',
                   style: TextStyle(color: Colors.white), // Establece el color del texto del botón
                 ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text("¿Usuario nuevo?"),
+                  TextButton(
+                    onPressed: () {
+                      // Aquí puedes agregar la navegación a la pantalla de registro
+                      // Navigator.push(context, MaterialPageRoute(builder: (context) => RegistroScreen()));
+                    },
+                    child: Text("Crear cuenta"),
+                  ),
+                ],
               ),
                SizedBox(height: 20.0),
                Row(

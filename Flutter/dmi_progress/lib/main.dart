@@ -179,13 +179,32 @@ class _NextScreenState extends State<NextScreen> {
               ),
                SizedBox(height: 20.0),
                Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image.asset('assets/image1.png', width: 40.0, height: 40.0),
-                  Image.asset('assets/image2.png', width: 50.0, height: 50.0),
-                  Image.asset('assets/image3.png', width: 50.0, height: 50.0),
-                ],
-              ),
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton.icon(
+                  onPressed: () {
+                    // Coloca aquí la lógica que deseas ejecutar cuando se presione el botón 1
+                  },
+                  icon: Image.asset('assets/image1.png', width: 40.0, height: 40.0),
+                  label: Text('Google'), // Puedes personalizar el texto del botón
+                ),
+                TextButton.icon(
+                  onPressed: () {
+                    // Coloca aquí la lógica que deseas ejecutar cuando se presione el botón 2
+                  },
+                  icon: Image.asset('assets/image2.png', width: 50.0, height: 50.0),
+                  label: Text('Facebook'),
+                ),
+                TextButton.icon(
+                  onPressed: () {
+                    // Coloca aquí la lógica que deseas ejecutar cuando se presione el botón 3
+                  },
+                  icon: Image.asset('assets/image3.png', width: 50.0, height: 50.0),
+                  label: Text('Twitter'),
+                ),
+                          
+              ],
+               )
             ],
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:google_sign_in/google_sign_in.dart';
 
 void main() => runApp(MyApp());
 
@@ -95,6 +96,34 @@ class _InitialScreenState extends State<InitialScreen> {
   }
 }
 
+class WelcomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Bienvenido'),
+        backgroundColor: Color(0xFFAD1919),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              '¡Bienvenido!',
+              style: TextStyle(
+                fontSize: 26.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 20.0),
+            // Agrega aquí cualquier contenido que desees mostrar en la pantalla de bienvenida.
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class NextScreen extends StatefulWidget {
   @override
   _NextScreenState createState() => _NextScreenState();
@@ -103,16 +132,59 @@ class NextScreen extends StatefulWidget {
 class _NextScreenState extends State<NextScreen> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final String usuarioPreestablecido = 'admin';
+  final String contrasenaPreestablecida = '1234';
+
+  final GoogleSignIn _googleSignIn = GoogleSignIn(
+    scopes: ['email', 'profile'],
+    clientId:
+        "176548420180-n1m2919btl1th40bopnnl7pfhdccnu7i.apps.googleusercontent.com",
+  );
 
   void _login() {
-    // Aquí puedes agregar la lógica de validación de inicio de sesión.
-    // Por ejemplo, puedes verificar si los campos no están vacíos y si las credenciales son correctas.
     String username = _usernameController.text;
     String password = _passwordController.text;
 
-    // Realiza las validaciones necesarias aquí.
+    if (username == usuarioPreestablecido &&
+        password == contrasenaPreestablecida) {
+      // Los datos de inicio de sesión son correctos
+      // Navega a la pantalla de bienvenida
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+    } else {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Error de inicio de sesión'),
+            content: Text(
+                'Las credenciales son incorrectas. Por favor, inténtalo de nuevo.'),
+            actions: <Widget>[
+              TextButton(
+                child: Text('Aceptar'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
 
-    // Si la validación es exitosa, puedes navegar a la siguiente pantalla.
+  Future<void> _handleGoogleSignIn() async {
+    try {
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+      if (googleUser != null) {
+        // El usuario ha iniciado sesión con éxito con Google.
+        print('Usuario autenticado con éxito: ${googleUser.displayName}');
+      } else {
+        print('No se ha seleccionado ninguna cuenta de Google.');
+      }
+    } catch (error) {
+        print('Error al iniciar sesión con Google: $error');
+      }
   }
 
   @override
@@ -129,7 +201,7 @@ class _NextScreenState extends State<NextScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SizedBox(height: 20.0),
-               Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Image.asset('assets/firebros3.png', height: 200.0),
@@ -145,7 +217,7 @@ class _NextScreenState extends State<NextScreen> {
               SizedBox(height: 20.0),
               TextField(
                 controller: _usernameController,
-                decoration: InputDecoration(labelText: 'Correo electronico'),
+                decoration: InputDecoration(labelText: 'Correo electrónico'),
               ),
               SizedBox(height: 10.0),
               TextField(
@@ -157,11 +229,14 @@ class _NextScreenState extends State<NextScreen> {
               ElevatedButton(
                 onPressed: _login,
                 style: ElevatedButton.styleFrom(
-                  primary: Color(0xFFAD1919), // Establece el color de fondo del botón
+                  primary: Color(
+                      0xFFAD1919), // Establece el color de fondo del botón
                 ),
                 child: Text(
                   'Iniciar sesión',
-                  style: TextStyle(color: Colors.white), // Establece el color del texto del botón
+                  style: TextStyle(
+                      color: Colors
+                          .white), // Establece el color del texto del botón
                 ),
               ),
               Row(
@@ -177,34 +252,35 @@ class _NextScreenState extends State<NextScreen> {
                   ),
                 ],
               ),
-               SizedBox(height: 20.0),
-               Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                TextButton.icon(
-                  onPressed: () {
-                    // Coloca aquí la lógica que deseas ejecutar cuando se presione el botón 1
-                  },
-                  icon: Image.asset('assets/image1.png', width: 40.0, height: 40.0),
-                  label: Text('Google'), // Puedes personalizar el texto del botón
-                ),
-                TextButton.icon(
-                  onPressed: () {
-                    // Coloca aquí la lógica que deseas ejecutar cuando se presione el botón 2
-                  },
-                  icon: Image.asset('assets/image2.png', width: 50.0, height: 50.0),
-                  label: Text('Facebook'),
-                ),
-                TextButton.icon(
-                  onPressed: () {
-                    // Coloca aquí la lógica que deseas ejecutar cuando se presione el botón 3
-                  },
-                  icon: Image.asset('assets/image3.png', width: 50.0, height: 50.0),
-                  label: Text('Twitter'),
-                ),
-                          
-              ],
-               )
+              SizedBox(height: 20.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextButton.icon(
+                    onPressed: _handleGoogleSignIn,
+                    icon: Image.asset('assets/image1.png',
+                        width: 40.0, height: 40.0),
+                    label: Text(
+                        'Google'), // Puedes personalizar el texto del botón
+                  ),
+                  TextButton.icon(
+                    onPressed: () {
+                      // Agrega aquí la lógica para iniciar sesión con Facebook
+                    },
+                    icon: Image.asset('assets/image2.png',
+                        width: 50.0, height: 50.0),
+                    label: Text('Facebook'),
+                  ),
+                  TextButton.icon(
+                    onPressed: () {
+                      // Agrega aquí la lógica para iniciar sesión con Twitter
+                    },
+                    icon: Image.asset('assets/image3.png',
+                        width: 50.0, height: 50.0),
+                    label: Text('Twitter'),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
@@ -212,4 +288,3 @@ class _NextScreenState extends State<NextScreen> {
     );
   }
 }
-

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,12 +23,22 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     // Simula una espera de 5 segundos
-    Future.delayed(Duration(seconds: 5), () {
-      // Navegar a la siguiente pantalla
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => NextScreen()),
-      );
+    Future.delayed(Duration(seconds: 5), () async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      bool isSessionActive = prefs.getBool('isSessionActive') ?? false;
+      bool keepSession = prefs.getBool('keepSession') ?? false;
+
+      if (isSessionActive && keepSession) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => WelcomeScreen()),
+        );
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => NextScreen()),
+        );
+      }
     });
   }
 
@@ -63,10 +74,6 @@ class _InitialScreenState extends State<InitialScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Elimina la AppBar
-      // appBar: AppBar(
-      //   title: Text('Pantalla inicial'),
-      // ),
       body: Container(
         color: Color.fromRGBO(248, 25, 46, 1.0), // Color de fondo
         padding: EdgeInsets.all(20.0),
@@ -75,19 +82,17 @@ class _InitialScreenState extends State<InitialScreen> {
           children: <Widget>[
             Image.asset('assets/firebros3.png', height: 200.0), // La imagen
             SizedBox(height: 20.0),
-            // LinearProgressIndicator con color transparente
             LinearProgressIndicator(
-              backgroundColor: Colors.transparent, // Color de fondo de la barra
+              backgroundColor: Colors.transparent,
               valueColor: AlwaysStoppedAnimation<Color>(
-                  Color.fromARGB(255, 255, 255, 255)), // Color de la barra
+                  Color.fromARGB(255, 255, 255, 255)),
               value: _progressValue,
-              minHeight:
-                  30.0, // Altura mínima de la barra de progreso (controla el grosor)
+              minHeight: 30.0,
             ),
             SizedBox(height: 20.0),
             Text(
               'Cargando...',
-              style: TextStyle(color: Colors.white), // Color del texto
+              style: TextStyle(color: Colors.white),
             ),
           ],
         ),
@@ -103,6 +108,20 @@ class WelcomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Bienvenido'),
         backgroundColor: Color(0xFFAD1919),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              await prefs.setBool('isSessionActive', false);
+              await prefs.setBool('keepSession', false);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => NextScreen()),
+              );
+            },
+          ),
+        ],
       ),
       body: Center(
         child: Column(
@@ -134,58 +153,13 @@ class _NextScreenState extends State<NextScreen> {
   final TextEditingController _passwordController = TextEditingController();
   final String usuarioPreestablecido = 'admin';
   final String contrasenaPreestablecida = '1234';
+  bool _keepSession = false;
 
   final GoogleSignIn _googleSignIn = GoogleSignIn(
     scopes: ['email', 'profile'],
     clientId:
         "176548420180-n1m2919btl1th40bopnnl7pfhdccnu7i.apps.googleusercontent.com",
   );
-
-  void _login() {
-    String username = _usernameController.text;
-    String password = _passwordController.text;
-
-    if (username == usuarioPreestablecido &&
-        password == contrasenaPreestablecida) {
-      // Los datos de inicio de sesión son correctos
-      // Navega a la pantalla de bienvenida
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
-    } else {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Error de inicio de sesión'),
-            content: Text(
-                'Las credenciales son incorrectas. Por favor, inténtalo de nuevo.'),
-            actions: <Widget>[
-              TextButton(
-                child: Text('Aceptar'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
-    }
-  }
-
-  Future<void> _handleGoogleSignIn() async {
-    try {
-      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-      if (googleUser != null) {
-        // El usuario ha iniciado sesión con éxito con Google.
-        print('Usuario autenticado con éxito: ${googleUser.displayName}');
-      } else {
-        print('No se ha seleccionado ninguna cuenta de Google.');
-      }
-    } catch (error) {
-        print('Error al iniciar sesión con Google: $error');
-      }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -223,60 +197,77 @@ class _NextScreenState extends State<NextScreen> {
               TextField(
                 controller: _passwordController,
                 decoration: InputDecoration(labelText: 'Contraseña'),
-                obscureText: true, // Para ocultar la contraseña
+                obscureText: true,
               ),
               SizedBox(height: 20.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Checkbox(
+                    value: _keepSession,
+                    onChanged: (value) {
+                      setState(() {
+                        _keepSession = value ?? false;
+                      });
+                    },
+                  ),
+                  Text('Mantener sesión iniciada'),
+                ],
+              ),
               ElevatedButton(
-                onPressed: _login,
+                onPressed: () async {
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
+                  await prefs.setBool('isSessionActive', true);
+                  await prefs.setBool('keepSession', _keepSession);
+
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => WelcomeScreen()),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
-                  primary: Color(
-                      0xFFAD1919), // Establece el color de fondo del botón
+                  primary: Color(0xFFAD1919),
                 ),
                 child: Text(
                   'Iniciar sesión',
-                  style: TextStyle(
-                      color: Colors
-                          .white), // Establece el color del texto del botón
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text("¿Usuario nuevo?"),
-                  TextButton(
-                    onPressed: () {
-                      // Aquí puedes agregar la navegación a la pantalla de registro
-                      // Navigator.push(context, MaterialPageRoute(builder: (context) => RegistroScreen()));
-                    },
-                    child: Text("Crear cuenta"),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   TextButton.icon(
-                    onPressed: _handleGoogleSignIn,
-                    icon: Image.asset('assets/image1.png',
-                        width: 40.0, height: 40.0),
-                    label: Text(
-                        'Google'), // Puedes personalizar el texto del botón
+                    onPressed: () async {
+                      await _handleGoogleSignIn();
+                    },
+                    icon: Image.asset(
+                      'assets/image1.png',
+                      width: 40.0,
+                      height: 40.0,
+                    ),
+                    label: Text('Google'),
                   ),
                   TextButton.icon(
                     onPressed: () {
                       // Agrega aquí la lógica para iniciar sesión con Facebook
                     },
-                    icon: Image.asset('assets/image2.png',
-                        width: 50.0, height: 50.0),
+                    icon: Image.asset(
+                      'assets/image2.png',
+                      width: 50.0,
+                      height: 50.0,
+                    ),
                     label: Text('Facebook'),
                   ),
                   TextButton.icon(
                     onPressed: () {
                       // Agrega aquí la lógica para iniciar sesión con Twitter
                     },
-                    icon: Image.asset('assets/image3.png',
-                        width: 50.0, height: 50.0),
+                    icon: Image.asset(
+                      'assets/image3.png',
+                      width: 50.0,
+                      height: 50.0,
+                    ),
                     label: Text('Twitter'),
                   ),
                 ],
@@ -286,5 +277,19 @@ class _NextScreenState extends State<NextScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> _handleGoogleSignIn() async {
+    try {
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+      if (googleUser != null) {
+        // El usuario ha iniciado sesión con éxito con Google.
+        print('Usuario autenticado con éxito: ${googleUser.displayName}');
+      } else {
+        print('No se ha seleccionado ninguna cuenta de Google.');
+      }
+    } catch (error) {
+      print('Error al iniciar sesión con Google: $error');
+    }
   }
 }

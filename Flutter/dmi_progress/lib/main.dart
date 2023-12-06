@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     // Simula una espera de 5 segundos
-    Future.delayed(Duration(seconds: 5), () async {
+    Future.delayed(Duration(seconds: 1), () async {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       bool isSessionActive = prefs.getBool('isSessionActive') ?? false;
       bool keepSession = prefs.getBool('keepSession') ?? false;
@@ -127,21 +127,230 @@ class WelcomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              '¡Bienvenido!',
-              style: TextStyle(
-                fontSize: 26.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+  
             SizedBox(height: 20.0),
             // Agrega aquí cualquier contenido que desees mostrar en la pantalla de bienvenida.
+
+      //INICIA BIENVENIDO
+
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.center, // Alinea los elementos en el centro horizontal
+        children: [
+          // Imagen en la parte superior
+          Image.asset('assets/firebros2.png', height: 100.0),
+
+          // Espaciado entre la imagen y los textos
+          SizedBox(height: 10.0),
+
+          // Texto 1
+          Text(
+            'Sanders',
+            style: TextStyle(
+              fontSize: 26.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+
+          // Espaciado entre los textos
+          SizedBox(height: 10.0),
+
+          // Texto 2
+          Text(
+            'sanders13@gmail.com',
+            style: TextStyle(
+              fontSize: 17.0,
+            ),
+          ),
+        ],
+      ),
+
+
+            // Biografía
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 15.0),
+              child: Text(
+                'Mi nombre es Sandra, me gusta jugar videojuegos derribando enemigos para desestresarme un poco.',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+                maxLines: 3, // Puedes ajustar este valor según tus necesidades
+                overflow: TextOverflow.ellipsis, // Ajusta cómo se maneja el desbordamiento
+              ),
+            ),
+
+
+        // Editar perfil
+Column(
+  children: [
+    SizedBox(
+      height: 50.0,
+      width: 200.0, 
+      child: ElevatedButton(
+        child: Text('Editar perfil'),
+        onPressed: () {
+          // Abrir una pantalla de edición de perfil
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => EditProfilePage()),
+          );
+        },
+        style: ElevatedButton.styleFrom(
+          primary: Color(0xFFAD1919),
+          minimumSize: Size(double.infinity, 50), // Ancho máximo
+        ),
+      ),
+    ),
+    SizedBox(height: 15.0), // Espacio entre botones
+
+    SizedBox(
+      height: 50.0, // Ajusta la altura según el tamaño deseado
+      width: 200.0, 
+
+      child: ElevatedButton(
+        child: Text('Mis puntajes'),
+        onPressed: () {
+          // Abrir una pantalla de puntajes
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => RankingTablePage()),
+          );
+        },
+        style: ElevatedButton.styleFrom(
+          primary: Color(0xFFAD1919),
+          minimumSize: Size(double.infinity, 50), // Ancho máximo
+        ),
+      ),
+    ),
+    SizedBox(height: 15.0), // Espacio entre botones
+
+    SizedBox(
+      height: 50.0,
+      width: 200.0, 
+ // Ajusta la altura según el tamaño deseado
+      child: ElevatedButton(
+        child: Text('Tabla de clasificación'),
+        onPressed: () {
+          // Abrir una pantalla de clasificación
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => RankingTableMinePage()),
+          );
+        },
+        style: ElevatedButton.styleFrom(
+          primary: Color(0xFFAD1919),
+          minimumSize: Size(double.infinity, 50), // Ancho máximo
+        ),
+      ),
+    ),
+  ],
+),
+
+
+
+            // Tabla de clasificación
+          Image.asset('assets/firebros2.png', height: 200.0),
+
+
+
+
+//TERMINA BIEMVENIDO
+       
+
           ],
         ),
       ),
     );
   }
 }
+
+//EDITAR PERFIL
+class EditProfilePage extends StatelessWidget {
+ @override
+ Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFFAD1919),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              await prefs.setBool('isSessionActive', false);
+              await prefs.setBool('keepSession', false);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => NextScreen()),
+              );
+            },
+          ),
+        ],
+      ),
+      body: Center(
+        child: Text('Contenido de la página de editar perfil'),
+      ),
+    );
+ }
+}
+
+//TABLA PUNTAJES
+class RankingTableMinePage extends StatelessWidget {
+ @override
+ Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFFAD1919),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              await prefs.setBool('isSessionActive', false);
+              await prefs.setBool('keepSession', false);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => NextScreen()),
+              );
+            },
+          ),
+        ],
+      ),
+      body: Center(
+        child: Text('Contenido de la página de tabla de mis puntos'),
+      ),
+    );
+ }
+}
+
+//clasificación 
+class RankingTablePage extends StatelessWidget {
+ @override
+ Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFFAD1919),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              await prefs.setBool('isSessionActive', false);
+              await prefs.setBool('keepSession', false);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => NextScreen()),
+              );
+            },
+          ),
+        ],
+      ),
+      body: Center(
+        child: Text('Contenido de la página de tabla de clasificación'),
+      ),
+    );
+ }
+}
+
+
 
 class NextScreen extends StatefulWidget {
   @override

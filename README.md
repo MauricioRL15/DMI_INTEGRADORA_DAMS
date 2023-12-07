@@ -19,6 +19,6 @@
 </div>
 ### Organigrama de equipo
 <p align="center">
-  <img src="https://github.com/DaniArroyo104/NUTRIMADS_utileria/blob/main/organigramaNew.jpg?raw=true" alt="Organigrama de equipo">
+  <img src="Img/organigrama.png?raw=true" alt="Organigrama de equipo">
 </p>
 

@@ -17,4 +17,8 @@
     <img src="https://github.com/MauricioRL15/Imagenes/blob/12e7a9582a3d5b81264d4011458d133f4b56def9/DMI_Integradora_2.jpg?raw=true" alt="Imagen 1" width="500" height="950"/><br>
     <img src="https://github.com/MauricioRL15/Imagenes/blob/12e7a9582a3d5b81264d4011458d133f4b56def9/DMI_Integradora_3.jpg?raw=true" alt="Imagen 1" width="500" height="950"/>
 </div>
+### Organigrama de equipo
+<p align="center">
+  <img src="https://github.com/DaniArroyo104/NUTRIMADS_utileria/blob/main/organigramaNew.jpg?raw=true" alt="Organigrama de equipo">
+</p>
 

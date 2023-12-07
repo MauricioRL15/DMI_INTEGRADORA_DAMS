@@ -127,4 +127,6 @@ Permitir a los desarrolladores comprender las necesidades y preferencias de los 
 
 <p align="center">
   <img src="Img/DF1.png?raw=true" alt="Diseño">
+  <img src="Img/DF2.png?raw=true" alt="Diseño">
+  <img src="Img/DF3.png?raw=true" alt="Diseño">
 </p>

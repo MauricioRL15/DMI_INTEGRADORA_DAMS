@@ -23,6 +23,7 @@
 <p align="center">
   <img src="Img/organigrama.png?raw=true" alt="Organigrama de equipo">
 </p>
+
 | Nombre y Apellido       | Cargo                | Departamento u Organización | 
 |-------------------------|----------------------|-----------------------------|
 | Arely Aguilar Farias    | Documentador         | MADS                        |

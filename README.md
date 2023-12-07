@@ -122,6 +122,10 @@ Permitir a los desarrolladores comprender las necesidades y preferencias de los 
 - Acceso completo y responsabilidad de seguridad y disponibilidad del sistema.
 
 ### Wireframes
+<p align="center">
+  <img src="Img/wireframe.png?raw=true" alt="Diseño">
+  
+</p>
 
 ### Diseño Figma
 

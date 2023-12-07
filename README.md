@@ -122,11 +122,15 @@ Permitir a los desarrolladores comprender las necesidades y preferencias de los 
 - Acceso completo y responsabilidad de seguridad y disponibilidad del sistema.
 
 ### Wireframes
+<p align="center">
+  <img src="Img/wireframe.png?raw=true" alt="Diseño">
+  
+</p>
 
-### Imágenes
+### Diseño Figma
 
-<div style="text-align: center">
-    <img src="https://github.com/MauricioRL15/Imagenes/blob/12e7a9582a3d5b81264d4011458d133f4b56def9/DMI_Integradora_1.jpg?raw=true" alt="Imagen 1" width="500" height="950"/><br>
-    <img src="https://github.com/MauricioRL15/Imagenes/blob/12e7a9582a3d5b81264d4011458d133f4b56def9/DMI_Integradora_2.jpg?raw=true" alt="Imagen 1" width="500" height="950"/><br>
-    <img src="https://github.com/MauricioRL15/Imagenes/blob/12e7a9582a3d5b81264d4011458d133f4b56def9/DMI_Integradora_3.jpg?raw=true" alt="Imagen 1" width="500" height="950"/>
-</div>
+<p align="center">
+  <img src="Img/DF1.png?raw=true" alt="Diseño">
+  <img src="Img/DF2.png?raw=true" alt="Diseño">
+  <img src="Img/DF3.png?raw=true" alt="Diseño">
+</p>

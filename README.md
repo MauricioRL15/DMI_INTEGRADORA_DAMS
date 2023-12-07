@@ -23,4 +23,9 @@
 <p align="center">
   <img src="Img/organigrama.png?raw=true" alt="Organigrama de equipo">
 </p>
-
+| Nombre y Apellido      | Cargo  |  Departamento u Organización |
+|------------|----------|---------------|--------------|-------------|
+| Arely Aguilar Farias | Documentador    | MADS | 02/05/23 | 
+| Sandra Aguilar Santos | Líder / DB Manager        | MADS |  
+| Daniel Arroyo Méndez | Desarrollador Backend    | MADS |  
+| Mauricio Ramírez López | Desarrollador Backend     | MADS |  

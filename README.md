@@ -43,4 +43,17 @@ Crear una plataforma de seguimiento y visualización de datos en tiempo real que
 6. Facilitar la accesibilidad de la plataforma mediante interfaces intuitivas y amigables, con documentación clara y soporte técnico eficiente para usuarios y desarrolladores.
 7. Mejorar continuamente la plataforma a través de la retroalimentación de los usuarios y actualizaciones regulares que agreguen nuevas funcionalidades y optimicen el rendimiento del sistema.
 
+## Propósito
+
+El propósito del proyecto es crear una plataforma integral de seguimiento y visualización de datos en tiempo real que sirva como una herramienta fundamental para jugadores y desarrolladores de videojuegos. Esta plataforma tiene como objetivo principal proporcionar un acceso fácil y eficiente a métricas clave del rendimiento del videojuego, con el fin de:
+
+### Facilitar la comprensión de las tendencias de juego
+Permitir a los usuarios, ya sean jugadores o desarrolladores, entender de manera clara y precisa cómo se comportan los usuarios dentro del juego, identificando patrones, preferencias y áreas de interés.
+
+### Apoyar la toma de decisiones basada en datos
+Proporcionar información valiosa y detallada que respalde la toma de decisiones estratégicas para mejorar aspectos del videojuego, como ajustes en el gameplay, diseño de niveles, implementación de actualizaciones, entre otros.
+
+### Impulsar la mejora continua de la experiencia del usuario
+Permitir a los desarrolladores comprender las necesidades y preferencias de los jugadores, lo que les permitirá adaptar y mejorar constantemente la experiencia de juego para satisfacer las demandas del público objetivo.
+
 

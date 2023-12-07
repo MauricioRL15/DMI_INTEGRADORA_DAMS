@@ -121,7 +121,7 @@ Permitir a los desarrolladores comprender las necesidades y preferencias de los 
 #### Administradores del Sistema:
 - Acceso completo y responsabilidad de seguridad y disponibilidad del sistema.
 
-<P>Wireframes</P>
+### Wireframes
 
 ### Imágenes
 

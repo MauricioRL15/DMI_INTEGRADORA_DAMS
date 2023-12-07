@@ -31,4 +31,16 @@
 | Daniel Arroyo Méndez    | Desarrollador Backend| MADS                        |
 | Mauricio Ramírez López  | Desarrollador Backend| MADS                        |
 
+## Objetivo General
+Crear una plataforma de seguimiento y visualización de datos en tiempo real que permita a los jugadores y desarrolladores acceder y analizar métricas clave del rendimiento del videojuego, facilitando así la comprensión de las tendencias de juego, la toma de decisiones basada en datos y la mejora continua de la experiencia del usuario.
+
+## Objetivos Específicos
+1. Desarrollar un panel de control interactivo que muestre métricas en tiempo real, como la tasa de retención de jugadores, el tiempo de juego promedio y la frecuencia de compra de elementos en el juego.
+2. Integrar un sistema de seguimiento de datos que recolecta información sobre la interacción del usuario, incluyendo patrones de juego, elección de personajes o niveles más populares y comportamientos de compra.
+3. Establecer una estructura de análisis predictivo que utiliza algoritmos para predecir tendencias de juego futuras basadas en datos históricos, permitiendo a los desarrolladores anticipar cambios en el comportamiento de los usuarios.
+4. Implementar herramientas de visualización de datos dinámicas y personalizables para que los jugadores y desarrolladores puedan crear gráficos, tablas y representaciones visuales a medida según sus necesidades específicas.
+5. Garantizar la seguridad y privacidad de los datos implementando medidas robustas de protección de la información sensible de los usuarios, cumpliendo con estándares de privacidad y regulaciones vigentes.
+6. Facilitar la accesibilidad de la plataforma mediante interfaces intuitivas y amigables, con documentación clara y soporte técnico eficiente para usuarios y desarrolladores.
+7. Mejorar continuamente la plataforma a través de la retroalimentación de los usuarios y actualizaciones regulares que agreguen nuevas funcionalidades y optimicen el rendimiento del sistema.
+
 

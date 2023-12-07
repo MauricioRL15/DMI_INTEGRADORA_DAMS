@@ -121,6 +121,14 @@ Permitir a los desarrolladores comprender las necesidades y preferencias de los 
 #### Administradores del Sistema:
 - Acceso completo y responsabilidad de seguridad y disponibilidad del sistema.
 
+  ### Sketches
+
+<p align="center">
+  <img src="Img/SK1.png?raw=true" alt="Diseño">
+  <img src="Img/SK2.png?raw=true" alt="Diseño">
+  <img src="Img/SK3.png?raw=true" alt="Diseño">
+</p>
+
 ### Wireframes
 <p align="center">
   <img src="Img/wireframe.png?raw=true" alt="Diseño">
@@ -134,3 +142,5 @@ Permitir a los desarrolladores comprender las necesidades y preferencias de los 
   <img src="Img/DF2.png?raw=true" alt="Diseño">
   <img src="Img/DF3.png?raw=true" alt="Diseño">
 </p>
+
+

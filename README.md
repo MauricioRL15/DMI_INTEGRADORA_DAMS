@@ -56,4 +56,77 @@ Proporcionar información valiosa y detallada que respalde la toma de decisiones
 ### Impulsar la mejora continua de la experiencia del usuario
 Permitir a los desarrolladores comprender las necesidades y preferencias de los jugadores, lo que les permitirá adaptar y mejorar constantemente la experiencia de juego para satisfacer las demandas del público objetivo.
 
+### Alcance del Producto
+
+- **Panel de Control Interactivo:** Desarrollar un panel central que muestre métricas clave del rendimiento del videojuego de manera clara y accesible para usuarios y desarrolladores.
+- **Integración de Seguimiento de Datos:** Implementar un sistema robusto que recolecte datos relevantes sobre la interacción de los usuarios dentro del juego.
+- **Herramientas de Visualización Personalizables:** Ofrecer herramientas flexibles y personalizables para crear gráficos y representaciones visuales adaptadas a necesidades específicas.
+- **Análisis Predictivo:** Incorporar capacidades de análisis predictivo basadas en algoritmos utilizando datos históricos.
+- **Seguridad y Privacidad de Datos:** Garantizar medidas sólidas de protección de la información confidencial de los usuarios.
+- **Accesibilidad y Documentación:** Proporcionar interfaces intuitivas y documentación clara para facilitar el uso efectivo de la plataforma.
+- **Actualizaciones y Mejoras Continuas:** Establecer un plan para implementar actualizaciones regulares según la retroalimentación de los usuarios y las demandas del mercado.
+
+### Funcionalidades
+
+- **Dashboard Centralizado:** Panel que presente métricas esenciales del rendimiento del juego para jugadores y desarrolladores.
+- **Seguimiento de Métricas en Tiempo Real:** Capacidad para monitorear y visualizar datos en tiempo real, como tiempo de juego y tasas de retención.
+- **Herramientas de Análisis Visual:** Gráficos interactivos y tablas para explorar datos y patrones dentro del juego.
+- **Personalización de Informes:** Creación de informes personalizados según métricas deseadas.
+- **APIs para Integración:** APIs para integrar la plataforma con otras herramientas y sistemas de gestión.
+- **Seguridad de Datos:** Mecanismos robustos de seguridad y encriptación.
+- **Documentación y Soporte:** Documentación detallada y soporte técnico para usuarios y desarrolladores.
+- **Actualizaciones y Mantenimiento:** Planificación de actualizaciones y correcciones según la retroalimentación de los usuarios.
+
+### Requerimientos Funcionales
+
+- **Registro y Autenticación de Usuarios:** Permitir registro seguro y autenticación.
+- **Panel de Control Personalizable:** Capacidad para personalizar el panel de control.
+- **Seguimiento en Tiempo Real:** Recopilación de datos en tiempo real sobre comportamiento de jugadores.
+- **Visualización de Datos:** Ofrecer opciones de visualización comprensibles.
+- **Análisis Predictivo:** Integración de algoritmos que permitan predecir tendencias futuras.
+- **APIs:** Integración con otros sistemas a través de APIs.
+- **Gestión de Permisos:** Administrar roles y permisos.
+- **Alertas y Notificaciones:** Implementar sistemas de alerta.
+- **Mantenimiento de Datos:** Asegurar precisión y relevancia de datos.
+- **Soporte Multidispositivo:** Garantizar accesibilidad desde varios dispositivos.
+
+### Requerimientos No Funcionales
+
+- **Seguridad y Privacidad:** Implementación de protocolos robustos.
+- **Rendimiento:** Garantizar tiempos de respuesta rápidos.
+- **Escalabilidad:** Capacidad para manejar aumento de usuarios y datos.
+- **Usabilidad e Intuitividad:** Interfaz fácil de usar.
+- **Compatibilidad Multiplataforma:** Funcionamiento en diferentes entornos.
+- **Mantenibilidad:** Código limpio y documentación.
+- **Disponibilidad:** Mantener alta disponibilidad.
+- **Cumplimiento Normativo:** Seguir regulaciones de privacidad y datos.
+- **Capacidades de Respuesta:** Adaptarse a las necesidades cambiantes.
+- **Documentación y Soporte:** Proporcionar documentación detallada y soporte técnico.
+
+### Reglas de Negocio
+
+- **Política de Privacidad:** Utilización de datos con consentimiento explícito.
+- **Acceso a Datos Sensibles:** Acceso restringido a datos sensibles.
+- **Actualización de Datos:** Actualización periódica de datos.
+- **Uso Ético de Datos:** Utilización de datos para mejorar experiencia de juego.
+- **Integridad de Datos:** Medidas para asegurar integridad de datos.
+- **Compatibilidad de APIs:** APIs compatibles con sistemas comunes.
+- **Notificación de Cambios:** Comunicación clara sobre cambios.
+- **Cumplimiento Normativo de Juego:** Seguir regulaciones de la industria.
+- **Soporte Técnico:** Proceso eficiente de atención al cliente.
+- **Respaldo de Seguridad:** Realización de copias de seguridad.
+
+### Clases y Características de Usuario
+
+#### Jugadores:
+- Acceso a métricas de juego personalizadas.
+- Interés en progreso, logros y estadísticas.
+- Uso de la plataforma para tomar decisiones estratégicas.
+
+#### Desarrolladores de Juegos:
+- Acceso a datos detallados sobre comportamiento de jugadores.
+- Necesidad de insights para ajustar el juego y mejorar la experiencia.
+
+#### Administradores del Sistema:
+- Acceso completo y responsabilidad de seguridad y disponibilidad del sistema.
 

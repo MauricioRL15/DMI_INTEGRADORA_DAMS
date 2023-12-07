@@ -25,7 +25,7 @@
 </p>
 | Nombre y Apellido      | Cargo  |  Departamento u Organización |
 |------------|----------|---------------|
-| Arely Aguilar Farias | Documentador    | MADS | 02/05/23 | 
-| Sandra Aguilar Santos | Líder / DB Manager        | MADS |  
+| Arely Aguilar Farias | Documentador    | MADS | 02/05/23 |
+| Sandra Aguilar Santos | Líder / DB Manager        | MADS | 
 | Daniel Arroyo Méndez | Desarrollador Backend    | MADS |  
-| Mauricio Ramírez López | Desarrollador Backend     | MADS |  
+| Mauricio Ramírez López | Desarrollador Backend     | MADS |

@@ -123,140 +123,156 @@ class WelcomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-  
-            SizedBox(height: 20.0),
-            // Agrega aquí cualquier contenido que desees mostrar en la pantalla de bienvenida.
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(height: 20.0),
 
-      //INICIA BIENVENIDO
+              //INICIA BIENVENIDO
 
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.center, // Alinea los elementos en el centro horizontal
-        children: [
-          // Imagen en la parte superior
-          Image.asset('assets/firebros2.png', height: 100.0),
-
-          // Espaciado entre la imagen y los textos
-          SizedBox(height: 10.0),
-
-          // Texto 1
-          Text(
-            'Sanders',
-            style: TextStyle(
-              fontSize: 26.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-
-          // Espaciado entre los textos
-          SizedBox(height: 10.0),
-
-          // Texto 2
-          Text(
-            'sanders13@gmail.com',
-            style: TextStyle(
-              fontSize: 17.0,
-            ),
-          ),
-        ],
-      ),
-
-
-            // Biografía
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 15.0),
-              child: Text(
-                'Mi nombre es Sandra, me gusta jugar videojuegos derribando enemigos para desestresarme un poco.',
-                style: TextStyle(
-                  fontSize: 16,
-                ),
-                maxLines: 3, // Puedes ajustar este valor según tus necesidades
-                overflow: TextOverflow.ellipsis, // Ajusta cómo se maneja el desbordamiento
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset('assets/firebros2.png', height: 100.0),
+                  SizedBox(height: 10.0),
+                  Text(
+                    'Sanders',  
+                    style: TextStyle(
+                      fontSize: 26.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    'sanders13@gmail.com',
+                    style: TextStyle(
+                      fontSize: 17.0,
+                    ),
+                  ),
+                ],
               ),
-            ),
 
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 15.0),
+                child: Text(
+                  'Mi nombre es Sandra, me gusta jugar videojuegos derribando enemigos para desestresarme un poco.',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
 
-        // Editar perfil
-Column(
-  children: [
-    SizedBox(
-      height: 50.0,
-      width: 200.0, 
-      child: ElevatedButton(
-        child: Text('Editar perfil'),
-        onPressed: () {
-          // Abrir una pantalla de edición de perfil
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => EditProfilePage()),
-          );
-        },
-        style: ElevatedButton.styleFrom(
-          primary: Color(0xFFAD1919),
-          minimumSize: Size(double.infinity, 50), // Ancho máximo
-        ),
-      ),
-    ),
-    SizedBox(height: 15.0), // Espacio entre botones
+              Column(
+                children: [
+                  SizedBox(
+                    height: 50.0,
+                    width: 200.0,
+                    child: ElevatedButton(
+                      child: Text('Editar perfil'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => EditProfilePage()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFFAD1919),
+                        minimumSize: Size(double.infinity, 50),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 15.0),
+                  SizedBox(
+                    height: 50.0,
+                    width: 200.0,
+                    child: ElevatedButton(
+                      child: Text('Mis puntajes'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => RankingTablePage()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFFAD1919),
+                        minimumSize: Size(double.infinity, 50),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 15.0),
+                  SizedBox(
+                    height: 50.0,
+                    width: 200.0,
+                    child: ElevatedButton(
+                      child: Text('Tabla de clasificación'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => RankingTableMinePage()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFFAD1919),
+                        minimumSize: Size(double.infinity, 50),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 15.0),
 
-    SizedBox(
-      height: 50.0, // Ajusta la altura según el tamaño deseado
-      width: 200.0, 
+//AcercaDe
+                  SizedBox(
+                    height: 50.0,
+                    width: 200.0,
+                    child: ElevatedButton(
+                      child: Text('Acerca de FireBross'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AcercaDe()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFFAD1919),
+                        minimumSize: Size(double.infinity, 50),
+                      ),
+                    ),
+                  ),
 
-      child: ElevatedButton(
-        child: Text('Mis puntajes'),
-        onPressed: () {
-          // Abrir una pantalla de puntajes
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => RankingTablePage()),
-          );
-        },
-        style: ElevatedButton.styleFrom(
-          primary: Color(0xFFAD1919),
-          minimumSize: Size(double.infinity, 50), // Ancho máximo
-        ),
-      ),
-    ),
-    SizedBox(height: 15.0), // Espacio entre botones
+                  SizedBox(height: 15.0),
 
-    SizedBox(
-      height: 50.0,
-      width: 200.0, 
- // Ajusta la altura según el tamaño deseado
-      child: ElevatedButton(
-        child: Text('Tabla de clasificación'),
-        onPressed: () {
-          // Abrir una pantalla de clasificación
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => RankingTableMinePage()),
-          );
-        },
-        style: ElevatedButton.styleFrom(
-          primary: Color(0xFFAD1919),
-          minimumSize: Size(double.infinity, 50), // Ancho máximo
-        ),
-      ),
-    ),
-  ],
-),
+                  SizedBox(
+                    height: 50.0,
+                    width: 200.0,
+                    child: ElevatedButton(
+                      child: Text('Historia de Fire Bross'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => historia()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFFAD1919),
+                        minimumSize: Size(double.infinity, 50),
+                      ),
+                    ),
+                  ),
 
+                ],
+              ),
 
-
-            // Tabla de clasificación
-          Image.asset('assets/firebros2.png', height: 200.0),
-
-
+              Image.asset('assets/firebros2.png', height: 200.0),
 
 
 //TERMINA BIEMVENIDO
        
 
-          ],
+           ],
+          ),
         ),
       ),
     );
@@ -287,6 +303,8 @@ class EditProfilePage extends StatelessWidget {
       ),
       body: Center(
         child: Text('Contenido de la página de editar perfil'),
+
+
       ),
     );
  }
@@ -345,6 +363,113 @@ class RankingTablePage extends StatelessWidget {
       ),
       body: Center(
         child: Text('Contenido de la página de tabla de clasificación'),
+      ),
+    );
+ }
+}
+
+//Acerca De
+class AcercaDe extends StatelessWidget {
+ @override
+ Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFFAD1919),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              await prefs.setBool('isSessionActive', false);
+              await prefs.setBool('keepSession', false);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => NextScreen()),
+              );
+            },
+          ),
+        ],
+      ),
+      body: Center(
+        child: Text('Contenido de la página de Acerca de FireBross'),
+      ),
+    );
+ }
+}
+
+//Historia
+class historia extends StatelessWidget {
+ @override
+ Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFFAD1919),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              await prefs.setBool('isSessionActive', false);
+              await prefs.setBool('keepSession', false);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => NextScreen()),
+              );
+            },
+          ),
+        ],
+      ),
+      body: Center(
+                child:Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset('assets/firebros2.png', height: 100.0),
+                  SizedBox(height: 10.0),
+                  Text(
+                    'Historia',  
+                    style: TextStyle(
+                      fontSize: 26.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10.0),
+                  Container(
+                    width: 300.0, // Establece el ancho máximo del contenedor
+                    child: Text(
+                      'En una isla volcánica alejada de cualquier civilización conocida, el volcán ha hecho erupción catastróficamente, trayendo consigo cientos de problemas para los habitantes, y visitantes de la misma, ya que no solo deberán preocuparse de la lava ardiente, sino también criaturas jamás antes vistas emergentes de la lava, es ahí cuando nos ponemos en la piel de nuestro valiente aventurero, “Lava Leaper”, en nuestra travesía por rescatar a nuestros amigos atrapados a lo largo de toda la isla evadiendo a nuestros enemigos.',
+                      style: TextStyle(
+                        fontSize: 14.0,
+                      ),
+                      textAlign: TextAlign.center, // Centra el texto dentro del contenedor
+                    ),
+                  ),
+                  SizedBox(height: 10.0),
+
+                  Text(
+                    'Descripción',  
+                    style: TextStyle(
+                      fontSize: 26.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+
+
+                  SizedBox(height: 10.0),
+                  Container(
+                    width: 300.0, // Establece el ancho máximo del contenedor
+                    child: Text(
+                      'Al controlar a Lava Leaper tendremos en nuestra posesión un traje que nos proteje parcialmente de muy altas temperaturas, así como botas de salto aumentado que nos permitirán llegar de una plataforma a otra atravezando los ríos de lava en nuestro camino por salvar a nuestros amigos',
+                      style: TextStyle(
+                        fontSize: 14.0,
+                      ),
+                      textAlign: TextAlign.center, // Centra el texto dentro del contenedor
+                    ),
+                  ),
+
+
+                ],
+              ),
       ),
     );
  }
